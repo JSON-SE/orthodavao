@@ -158,14 +158,6 @@
                                 @enderror
                             </div>
                             <div class="form-group input-rounded">
-                                <input type="text" wire:model="address"
-                                    class="form-control {{ $errors->has('address') ? ' is-invalid' : '' }}"
-                                    placeholder="Floor No. / Street / Subdivision" />
-                                @error('address')
-                                <div class="invalid-feedback"> {{ $message }} </div>
-                                @enderror
-                            </div>
-                            <div class="form-group input-rounded">
                                 <input type="text" wire:model="occupation" class="form-control"
                                     placeholder="Occupation" />
                             </div>

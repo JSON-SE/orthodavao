@@ -68,7 +68,7 @@
                                 </tr>
                                 <tr>
                                     <td>Contact</td>
-                                    <td>{{ $contact }}</td>
+                                    <td>{{ isset($contact) ? $contact : 'No contact' }}</td>
                                 </tr>
                                 <tr>
                                     <td>Email</td>
@@ -235,14 +235,6 @@
                                         <option value="Widowed">Widowed</option>
                                     </select>
                                     @error('civil_status')
-                                    <div class="invalid-feedback"> {{ $message }} </div>
-                                    @enderror
-                                </div>
-                                <div class="form-group input-rounded">
-                                    <input type="text" wire:model="address"
-                                        class="form-control {{ $errors->has('address') ? ' is-invalid' : '' }}"
-                                        placeholder="Floor No. / Street / Subdivision" />
-                                    @error('address')
                                     <div class="invalid-feedback"> {{ $message }} </div>
                                     @enderror
                                 </div>

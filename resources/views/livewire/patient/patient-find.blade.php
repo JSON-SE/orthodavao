@@ -67,7 +67,7 @@
                             </tr>
                             <tr>
                                 <td>Contact</td>
-                                <td>{{ $contact }}</td>
+                                <td>{{ isset($contact) ? $contact : 'No Contact' }}</td>
                             </tr>
                             <tr>
                                 <td>Email</td>

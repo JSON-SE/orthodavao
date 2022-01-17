@@ -29,7 +29,6 @@ class PatientCreate extends Component
     public $age;
     public $sex;
     public $civil_status;
-    public $address;
     public $occupation;
     public $contact;
     public $email;
@@ -42,7 +41,6 @@ class PatientCreate extends Component
         'age' => 'required',
         'sex' => 'required',
         'civil_status' => 'required',
-        'address' => 'min:5',
         'contact' => 'min:18',
     ];
 
@@ -89,7 +87,6 @@ class PatientCreate extends Component
             'region_code' => $this->region_code,
             'province_code' => $this->province_code,
             'city_municipality_code' => $this->city_municipality_code,
-            'comp_subd_street' => $this->address,
             'barangay_code' => $this->barangay_code,
             'firstname' => $this->firstname,
             'middlename' => $this->middlename,
@@ -122,7 +119,6 @@ class PatientCreate extends Component
         $this->age = '';
         $this->sex = '';
         $this->civil_status = '';
-        $this->address = '';
         $this->occupation = '';
         $this->contact = '';
         $this->email = '';

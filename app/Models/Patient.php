@@ -15,7 +15,6 @@ class Patient extends Model
         'province_code',
         'city_municipality_code',
         'barangay_code',
-        'comp_subd_street',
         'firstname',
         'middlename',
         'lastname',

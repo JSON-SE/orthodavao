@@ -33,7 +33,7 @@ class PatientFind extends Component
     {
         $this->patient_id = $id;
         // Patient Queries
-        $query = Patient::find($this->patient_id)->first();
+        $query = Patient::where('id', $this->patient_id)->first();
         $queryRegion = PhilippineRegion::where('region_code', '=', $query->region_code)->first();
         $this->region = $queryRegion->region_description;
         $queryProvince = PhilippineProvince::where('region_code', '=', $query->region_code)->first();

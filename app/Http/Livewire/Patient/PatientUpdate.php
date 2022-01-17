@@ -32,9 +32,8 @@ class PatientUpdate extends Component
     public $suffix;
     public $birthdate;
     public $age;
-    public $sex;
+    public $gender;
     public $civil_status;
-    public $address;
     public $occupation;
     public $contact;
     public $email;
@@ -44,7 +43,7 @@ class PatientUpdate extends Component
     {
         $this->patient_id = $id;
         // Patient Queries
-        $query = Patient::find($this->patient_id)->first();
+        $query = Patient::where('id', $this->patient_id)->first();
         $queryRegion = PhilippineRegion::where('region_code', '=', $query->region_code)->first();
         $this->region_description = $queryRegion->region_description;
         $queryProvince = PhilippineProvince::where('region_code', '=', $query->region_code)->first();
@@ -65,7 +64,6 @@ class PatientUpdate extends Component
         $this->occupation = $query->occupation;
         $this->contact = $query->contact;
         $this->email = $query->email;
-        $this->address = $query->comp_subd_street;
         $this->role = Role::all();
         $this->region = PhilippineRegion::all();
         $searchProvince = PhilippineProvince::where('region_code', '=', $this->region_code)->get();
@@ -75,9 +73,8 @@ class PatientUpdate extends Component
         'firstname' => 'required',
         'lastname' => 'required',
         'age' => 'required',
-        'sex' => 'required',
+        'gender' => 'required',
         'civil_status' => 'required',
-        'address' => 'min:5',
         'contact' => 'min:18',
     ];
 
@@ -118,7 +115,6 @@ class PatientUpdate extends Component
             'region_code' => $this->region_code,
             'province_code' => $this->province_code,
             'city_municipality_code' => $this->city_municipality_code,
-            'comp_subd_street' => $this->address,
             'barangay_code' => $this->barangay_code,
             'firstname' => $this->firstname,
             'middlename' => $this->middlename,
@@ -126,7 +122,7 @@ class PatientUpdate extends Component
             'suffix' => $this->suffix,
             'birthdate' => $this->birthdate,
             'age' =>  $this->age,
-            'gender' =>  $this->sex,
+            'gender' =>  $this->gender,
             'civil_status' => $this->civil_status,
             'occupation' => $this->occupation,
             'contact' => $this->contact,
@@ -135,27 +131,10 @@ class PatientUpdate extends Component
 
         // Disables the button for 1 second
         sleep(1);
-        // Clear out the form fields after submission
-        $this->resetForm();
         // Enables notification after submission
         $this->notification = true;
     }
 
-    public function resetForm()
-    {
-        $this->firstname = '';
-        $this->middlename = '';
-        $this->lastname = '';
-        $this->suffix = '';
-        $this->birthdate = '';
-        $this->age = '';
-        $this->sex = '';
-        $this->civil_status = '';
-        $this->address = '';
-        $this->occupation = '';
-        $this->contact = '';
-        $this->email = '';
-    }
     public function render()
     {
         return view('livewire.patient.patient-update')->extends('layouts.app');

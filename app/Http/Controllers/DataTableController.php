@@ -28,7 +28,7 @@ class DataTableController extends Controller
                 $province = $queryProvince->province_description;
                 $city_municipality = $queryCity->city_municipality_description;
                 $barangay = $queryBarangay->barangay_description;
-                $merge_address = $patient->comp_subd_street.' '.$barangay.', '.$city_municipality.' '.$province;
+                $merge_address = $barangay.', '.$city_municipality.' '.$province;
                 return $merge_address;
             })
             ->addColumn('contact', function ($patient) {

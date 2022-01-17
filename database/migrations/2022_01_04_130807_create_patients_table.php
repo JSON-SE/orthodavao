@@ -19,7 +19,6 @@ class CreatePatientsTable extends Migration
             $table->string('province_code')->index();
             $table->string('city_municipality_code')->index();
             $table->string('barangay_code')->index();
-            $table->string('comp_subd_street');
             $table->string('firstname');
             $table->string('middlename');
             $table->string('lastname');
