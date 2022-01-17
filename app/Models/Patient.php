@@ -11,21 +11,22 @@ class Patient extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'philippine_regions',
-        'philippine_provinces',
-        'philippine_cities',
-        'philippine_barangays',
+        'region_code',
+        'province_code',
+        'city_municipality_code',
+        'barangay_code',
+        'comp_subd_street',
         'firstname',
-        'middlename',       // optional
+        'middlename',
         'lastname',
-        'suffix',           // optional
+        'suffix',
         'birthdate',
         'age',
         'gender',
         'civil_status',
-        'occupation',       // optional
-        'contact',          // optional
-        'email'             // optional
+        'occupation',
+        'contact',
+        'email'
     ];
 
     public function consultationImagePatient()

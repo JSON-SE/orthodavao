@@ -66,6 +66,18 @@
                             name: 'name'
                         },
                         {
+                            data: 'merge_address',
+                            name: 'merge_address'
+                        },
+                        {
+                            data: 'contact',
+                            name: 'contact'
+                        },
+                        {
+                            data: 'email',
+                            name: 'email'
+                        },
+                        {
                             data: 'action',
                             name: 'action'
                         },

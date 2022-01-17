@@ -1,10 +1,13 @@
 <?php
 
-use App\Http\Controllers\DataTableController;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Auth\Register;
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Patient\PatientFind;
+use App\Http\Livewire\Patient\PatientCreate;
+use App\Http\Livewire\Patient\PatientUpdate;
+use App\Http\Controllers\DataTableController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,10 +34,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/', Dashboard::class)->name('dashboard');
     Route::post('/logout', [Login::class, 'logout'])
     ->name('logout');
+    Route::get('/patient/create', PatientCreate::class)->name('patient-create');
+    Route::get('/find/patient/{id}', PatientFind::class);
+    Route::get('/update/patient/{id}', PatientUpdate::class);
 });
 
 // DataTale Routes
 Route::middleware(['auth'])->group(function () {
     // your routes goes here..
-    Route::get('/datatable/patient', [DataTableController::class, 'dashboardPatientTable'])->name('dashboard');
+    Route::get('/datatable/patient', [DataTableController::class, 'dashboardPatientTable'])->name('patient-table');
 });

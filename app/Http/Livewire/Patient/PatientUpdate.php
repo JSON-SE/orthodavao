@@ -10,14 +10,19 @@ use App\Models\PhilippineCity;
 use App\Models\PhilippineRegion;
 use App\Models\PhilippineBarangay;
 use App\Models\PhilippineProvince;
+use Illuminate\Support\Facades\DB;
 
-class PatientCreate extends Component
+class PatientUpdate extends Component
 {
+    public $patient_id;
     public $region;
+    public $region_description;
     public $region_code;
     public $province;
+    public $province_description;
     public $province_code;
     public $city_municipality;
+    public $city_municipality_description;
     public $city_municipality_code;
     public $barangay;
     public $barangay_code;
@@ -35,23 +40,46 @@ class PatientCreate extends Component
     public $email;
     public $notification = false;
 
+    public function mount($id)
+    {
+        $this->patient_id = $id;
+        // Patient Queries
+        $query = Patient::find($this->patient_id)->first();
+        $queryRegion = PhilippineRegion::where('region_code', '=', $query->region_code)->first();
+        $this->region_description = $queryRegion->region_description;
+        $queryProvince = PhilippineProvince::where('region_code', '=', $query->region_code)->first();
+        $this->province_description = $queryProvince->province_description;
+        $queryCityMunicipality = PhilippineCity::where('city_municipality_code', '=', $query->city_municipality_code)->first();
+        $this->city_municipality_description = $queryCityMunicipality->city_municipality_description;
+        $queryBarangay = PhilippineBarangay::where('barangay_code', '=', $query->barangay_code)->first();
+        $this->barangay_description = $queryBarangay->barangay_description;
+        // End Patient Queries
+        $this->firstname = $query->firstname;
+        $this->middlename = $query->middlename;
+        $this->lastname = $query->lastname;
+        $this->suffix = $query->suffix;
+        $this->birthdate = Carbon::parse($query->birthdate)->toFormattedDateString();
+        $this->age = $query->age;
+        $this->gender = $query->gender;
+        $this->civil_status = $query->civil_status;
+        $this->occupation = $query->occupation;
+        $this->contact = $query->contact;
+        $this->email = $query->email;
+        $this->address = $query->comp_subd_street;
+        $this->role = Role::all();
+        $this->region = PhilippineRegion::all();
+        $searchProvince = PhilippineProvince::where('region_code', '=', $this->region_code)->get();
+    }
+
     protected $rules = [
         'firstname' => 'required',
         'lastname' => 'required',
-        'birthdate' => 'required',
         'age' => 'required',
         'sex' => 'required',
         'civil_status' => 'required',
         'address' => 'min:5',
         'contact' => 'min:18',
     ];
-
-    public function mount()
-    {
-        $this->role = Role::all();
-        $this->region = PhilippineRegion::all();
-        $searchProvince = PhilippineProvince::where('region_code', '=', $this->region_code)->get();
-    }
 
     public function updated($propertyName)
     {
@@ -81,11 +109,12 @@ class PatientCreate extends Component
         $this->age = Carbon::parse($value)->diff(Carbon::now())->y;
     }
 
-    public function submitForm()
+    public function updateForm()
     {
         $this->validate();
-
-        Patient::create([
+        $query = DB::table('patients')
+        ->where('id', $this->patient_id)
+        ->update([
             'region_code' => $this->region_code,
             'province_code' => $this->province_code,
             'city_municipality_code' => $this->city_municipality_code,
@@ -127,13 +156,8 @@ class PatientCreate extends Component
         $this->contact = '';
         $this->email = '';
     }
-
-    public function closeMessage()
-    {
-        $this->notification = false;
-    }
     public function render()
     {
-        return view('livewire.patient.patient-create')->extends('layouts.app');
+        return view('livewire.patient.patient-update')->extends('layouts.app');
     }
 }

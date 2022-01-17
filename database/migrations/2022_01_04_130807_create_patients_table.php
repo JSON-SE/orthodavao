@@ -15,10 +15,11 @@ class CreatePatientsTable extends Migration
     {
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
-            $table->string('philippine_regions')->index();
-            $table->string('philippine_provinces')->index();
-            $table->string('philippine_cities')->index();
-            $table->string('philippine_barangays')->index();
+            $table->string('region_code')->index();
+            $table->string('province_code')->index();
+            $table->string('city_municipality_code')->index();
+            $table->string('barangay_code')->index();
+            $table->string('comp_subd_street');
             $table->string('firstname');
             $table->string('middlename');
             $table->string('lastname');

@@ -14,12 +14,18 @@
                         <table class="table table-hover table-striped table-condensed" id="patientTable" width="100%">
                             <thead>
                                 <th>Name</th>
+                                <th>Address</th>
+                                <th>contact</th>
+                                <th>Email</th>
                                 <th>Action</th>
                             </thead>
                             <tbody>
                             </tbody>
                             <tfoot>
                                 <th>Name</th>
+                                <th>Address</th>
+                                <th>contact</th>
+                                <th>Email</th>
                                 <th>Action</th>
                             </tfoot>
                         </table>

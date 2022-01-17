@@ -59,7 +59,7 @@
                     </a>
                     <ul class="navigation-submenu collapse" id="patient-pages">
                         <li>
-                            <a href="#">New patient</a>
+                            <a href="{{ route('patient-create') }}">New patient</a>
                         </li>
                         <!-- <li>
                                         <a href="#" target="_blank">Patient Records</a>
