@@ -11,6 +11,7 @@ use App\Http\Livewire\Patient\PatientUpdate;
 use App\Http\Controllers\DataTableController;
 use App\Http\Livewire\Consultation\ConsultationIndex;
 use App\Http\Livewire\Consultation\ConsultationCreate;
+use App\Http\Livewire\Consultation\ConsultationShow;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/consultation/index', ConsultationIndex::class)->name('consultation-index');
     Route::get('/consultation/create/{id}', ConsultationCreate::class);
     Route::post('/consultation/create', [ConsultationController::class, 'store'])->name('post-consultation');
+    Route::get('/find/consultation/{id}', ConsultationShow::class);
 });
 
 // DataTale Routes
