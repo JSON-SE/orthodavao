@@ -73,7 +73,7 @@
                     </a>
                     <ul class="navigation-submenu collapse" id="consultation-pages">
                         <li>
-                            <a href="#">New Consultation</a>
+                            <a href="{{ route('consultation-index') }}">New Consultation</a>
                         </li>
                     </ul>
                 </li>

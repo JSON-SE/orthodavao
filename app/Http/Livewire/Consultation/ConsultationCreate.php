@@ -1,17 +1,16 @@
 <?php
 
-namespace App\Http\Livewire\Patient;
+namespace App\Http\Livewire\Consultation;
 
 use Carbon\Carbon;
 use App\Models\Patient;
 use Livewire\Component;
-use App\Models\Consultation;
 use App\Models\PhilippineCity;
 use App\Models\PhilippineRegion;
 use App\Models\PhilippineBarangay;
 use App\Models\PhilippineProvince;
 
-class PatientFind extends Component
+class ConsultationCreate extends Component
 {
     public $patient_id;
     public $region;
@@ -29,8 +28,7 @@ class PatientFind extends Component
     public $occupation;
     public $contact;
     public $email;
-    public $consultation;
-
+    public $subjective;
     public function mount($id)
     {
         $this->patient_id = $id;
@@ -56,14 +54,15 @@ class PatientFind extends Component
         $this->occupation = $query->occupation;
         $this->contact = $query->contact;
         $this->email = $query->email;
+    }
 
-        //Consultation Query
-        $queryConsultation = Consultation::where('patient_id', $this->patient_id)->get();
-        $this->consultation = $queryConsultation;
+    public function consultationSubmit()
+    {
+        dd($this->subjective);
     }
 
     public function render()
     {
-        return view('livewire.patient.patient-find')->extends('layouts.app');
+        return view('livewire.consultation.consultation-create')->extends('layouts.app');
     }
 }

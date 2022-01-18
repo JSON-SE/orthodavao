@@ -118,7 +118,7 @@
                     processing: true,
                     serverSide: true,
                     deferRender: true,
-                    ajax: '/consultation/index',
+                    ajax: '/datatable/consultation',
                     columns: [{
                             data: 'name',
                             name: 'name'
@@ -128,12 +128,12 @@
                             name: 'age'
                         },
                         {
-                            data: 'sex',
-                            name: 'sex'
+                            data: 'gender',
+                            name: 'gender'
                         },
                         {
-                            data: 'address',
-                            name: 'address'
+                            data: 'merge_address',
+                            name: 'merge_address'
                         },
                         {
                             data: 'action',
