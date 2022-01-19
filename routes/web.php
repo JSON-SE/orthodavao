@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\ConsultationController;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Auth\Register;
@@ -9,9 +8,10 @@ use App\Http\Livewire\Patient\PatientFind;
 use App\Http\Livewire\Patient\PatientCreate;
 use App\Http\Livewire\Patient\PatientUpdate;
 use App\Http\Controllers\DataTableController;
+use App\Http\Controllers\ConsultationController;
+use App\Http\Livewire\Consultation\ConsultationShow;
 use App\Http\Livewire\Consultation\ConsultationIndex;
 use App\Http\Livewire\Consultation\ConsultationCreate;
-use App\Http\Livewire\Consultation\ConsultationShow;
 
 /*
 |--------------------------------------------------------------------------

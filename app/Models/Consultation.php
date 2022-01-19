@@ -11,6 +11,7 @@ class Consultation extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'date',
         'patient_id',
         'subjective',
         'objective',

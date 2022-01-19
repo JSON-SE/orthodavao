@@ -12,6 +12,7 @@ class ConsultationController extends Controller
     public function store(Request $request)
     {
         $consultation = new Consultation();
+        $consultation->date = $request->date;
         $consultation->patient_id = $request->patient_id;
         $consultation->subjective = $request->subjective;
         $consultation->objective = $request->objective;
@@ -25,7 +26,7 @@ class ConsultationController extends Controller
         if ($files != null) {
             foreach ($files as $file) {
                 $name=$file->getClientOriginalName();
-                $file->move('image', $name);
+                $file->storeAs('public/image', $name);
                 $images[]=$name;
 
                 $storeImage = new ImagePatient();
@@ -44,6 +45,7 @@ class ConsultationController extends Controller
             $storeConsultationImagePatient->patient_id = $request->patient_id;
             $storeConsultationImagePatient->save();
         }
+
 
         session()->put('message', 'Added successfuly to our records.');
         return back()->withInput();

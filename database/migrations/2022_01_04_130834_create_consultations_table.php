@@ -15,11 +15,12 @@ class CreateConsultationsTable extends Migration
     {
         Schema::create('consultations', function (Blueprint $table) {
             $table->id();
+            $table->dateTime('date');
             $table->foreignId('patient_id')->constrained('patients');
-            $table->string('subjective');
-            $table->string('objective');
-            $table->string('assessment');
-            $table->string('plan');
+            $table->longText('subjective');
+            $table->longText('objective');
+            $table->longText('assessment');
+            $table->longText('plan');
             $table->timestamps();
         });
     }

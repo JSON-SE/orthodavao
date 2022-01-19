@@ -103,7 +103,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="date">Consultation Date</label>
-                                    <input type="datetime-local" class="form-control">
+                                    <input type="datetime-local" name="date" class="form-control">
                                 </div>
                             </div>
                         </div>

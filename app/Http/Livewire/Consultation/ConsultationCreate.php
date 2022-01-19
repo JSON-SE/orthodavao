@@ -56,10 +56,11 @@ class ConsultationCreate extends Component
         $this->email = $query->email;
     }
 
-    public function consultationSubmit()
-    {
-        dd($this->subjective);
-    }
+    // NOTE: No longer in use
+    // public function consultationSubmit()
+    // {
+    //     dd($this->subjective);
+    // }
 
     public function render()
     {

@@ -98,8 +98,7 @@
                                 @foreach ($consultation as $data)
                                 <tr>
                                     <td>
-                                        {{ \Carbon\Carbon::parse($data->created_at)->format('l jS \\of F Y h:i:s A');
-                                        }}
+                                        {{ \Carbon\Carbon::parse($data->date)->format('l jS \\of F Y h:i:s A');}}
                                     </td>
                                     <td>
                                         <a href="/find/consultation/{{ $data->patient_id }}"

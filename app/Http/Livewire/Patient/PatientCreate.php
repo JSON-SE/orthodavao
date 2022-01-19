@@ -40,8 +40,7 @@ class PatientCreate extends Component
         'birthdate' => 'required',
         'age' => 'required',
         'sex' => 'required',
-        'civil_status' => 'required',
-        'contact' => 'min:18',
+        'civil_status' => 'required'
     ];
 
     public function mount()
