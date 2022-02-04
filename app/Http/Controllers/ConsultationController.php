@@ -123,4 +123,27 @@ class ConsultationController extends Controller
         session()->put('message', 'Deleted Successfuly.');
         return back();
     }
+
+    // create a public function called destroyConsultation that will delete a consultation
+    public function destroyConsultation($id)
+    {
+        $consultation = Consultation::find($id);
+        $image = ImagePatient::where('consultation_id', $id)->get();
+        // TODO: see if image will be removed
+        if ($image != null) {
+            foreach ($image as $image) {
+                $path = public_path().'/image/';
+                // ERROR: Cannot delete file 'public/image/'.$image->name.'.jpg' (Permission denied)
+                // Remove old file
+                if ($image->name != ''  && $image->name != null) {
+                    $file_old = Image::make($path.$image->name);
+                    $file_old->destroy();
+                }
+                $image->delete();
+            }
+        }
+        $consultation->delete();
+        session()->put('message', 'Deleted Successfuly.');
+        return back();
+    }
 }

@@ -49,6 +49,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/consultation/update/{id}', ConsultationUpdate::class);
     Route::get('/find/consultation/remove/{id}', [ConsultationController::class, 'destroy']);
     Route::post('/consultation/update/{id}', [ConsultationController::class, 'update']);
+    Route::get('/consultation/destroy/{id}', [ConsultationController::class, 'destroyConsultation']);
 });
 // DataTale Routes
 Route::middleware(['auth'])->group(function () {

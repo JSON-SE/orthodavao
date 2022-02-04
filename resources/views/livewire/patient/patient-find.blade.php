@@ -3,8 +3,14 @@
         <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
         <li class="breadcrumb-item active" aria-current="page">Find Patient</li>
     </ol>
+    @if (session()->has('message'))
+    <div class="alert alert-success">
+        {{ session()->get('message') }}
+        {{ session()->forget('message') }}
+    </div>
+    @endif
     <div class="row">
-        <div class="col-lg-8 col-md-7 col-sm-9 col-11 mx-auto">
+        <div class="col-lg-6">
             <div class="grid">
                 <div class="grid-body">
                     <div class="grid-header">Patient Details</div>
@@ -81,6 +87,43 @@
                 </div>
             </div>
         </div>
+        <div class="col-lg-6">
+            <div class="grid">
+                <div class="grid-body">
+                    <div class="grid-header">Patient Medical Request</div>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <th></th>
+                                <th></th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Diagnostics</td>
+                                    <td><a href="#" class="btn btn-xs btn-default">Request</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Referral</td>
+                                    <td><a href="#" class="btn btn-xs btn-default">Request</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Admission</td>
+                                    <td><a href="#" class="btn btn-xs btn-default">Request</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Prescription</td>
+                                    <td><a href="#" class="btn btn-xs btn-default">Request</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Medical Certificate</td>
+                                    <td><a href="#" class="btn btn-xs btn-default">Request</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="row">
         <div class="col-md-12">
@@ -101,10 +144,12 @@
                                         {{ \Carbon\Carbon::parse($data->date)->format('l jS \\of F Y h:i:s A');}}
                                     </td>
                                     <td>
-                                        <a href="/find/consultation/{{ $data->patient_id }}"
-                                            class="btn btn-xs btn-outline-default">View</a>
-                                        <a href="/consultation/update/{{ $data->patient_id }}"
-                                            class="btn btn-xs btn-outline-default">Update</a>
+                                        <a href="/find/consultation/{{ $data->id }}"
+                                            class="btn btn-xs btn-default">View</a>
+                                        <a href="/consultation/update/{{ $data->id }}"
+                                            class="btn btn-xs btn-default">Update</a>
+                                        <a href="/consultation/destroy/{{ $data->id }}"
+                                            class="btn btn-xs btn-danger">Remove</a>
                                     </td>
                                 </tr>
                                 @endforeach

@@ -77,21 +77,6 @@
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <a href="#certificate-pages" data-toggle="collapse" aria-expanded="false">
-                        <span class="link-title">Certificates</span>
-                        <i class="mdi mdi-file-export link-icon"></i>
-                    </a>
-                    <ul class="navigation-submenu collapse" id="certificate-pages">
-                        <li>
-                            <a href="#">Request Diagnostics</a>
-                            <a href="#">Referral</a>
-                            <a href="#">Admission</a>
-                            <a href="#">Prescription</a>
-                            <a href="#">Medical Certificate</a>
-                        </li>
-                    </ul>
-                </li>
             </ul>
             <div class="sidebar_footer">
                 <div class="user-account">

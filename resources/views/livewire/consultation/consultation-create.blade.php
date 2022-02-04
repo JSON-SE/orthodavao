@@ -116,7 +116,8 @@
                             <div class="grid">
                                 <div class="grid-header">Subjective</div>
                                 <div class="grid-body">
-                                    <textarea name="subjective" id="subjective" cols="30" rows="10"></textarea>
+                                    <textarea name="subjective" id="subjective" cols="30"
+                                        rows="10">{{ old('subjective') }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -124,7 +125,8 @@
                             <div class="grid">
                                 <div class="grid-header">Objective</div>
                                 <div class="grid-body">
-                                    <textarea name="objective" id="objective" cols="30" rows="10"></textarea>
+                                    <textarea name="objective" id="objective" cols="30"
+                                        rows="10">{{ old('objective') }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -132,7 +134,8 @@
                             <div class="grid">
                                 <div class="grid-header">Assessment</div>
                                 <div class="grid-body">
-                                    <textarea name="assessment" id="assessment" cols="30" rows="10"></textarea>
+                                    <textarea name="assessment" id="assessment" cols="30"
+                                        rows="10">{{ old('assessment') }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -140,7 +143,7 @@
                             <div class="grid">
                                 <div class="grid-header">Plan</div>
                                 <div class="grid-body">
-                                    <textarea name="plan" id="plan" cols="30" rows="10"></textarea>
+                                    <textarea name="plan" id="plan" cols="30" rows="10">{{ old('plan') }}</textarea>
                                 </div>
                             </div>
                         </div>

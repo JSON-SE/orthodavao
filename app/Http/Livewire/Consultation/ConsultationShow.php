@@ -12,10 +12,10 @@ class ConsultationShow extends Component
     public $image;
     public function mount($id)
     {
-        $query = Consultation::where('patient_id', $id)->first();
+        $query = Consultation::find($id);
         $this->consultation = $query;
         $queryImage = ImagePatient::with('patient', 'consultation')
-        ->where('consultation_id', $this->consultation->id)
+        ->where('consultation_id', $id)
         ->where('patient_id', $this->consultation->patient_id)->get();
         $this->image = $queryImage;
     }
