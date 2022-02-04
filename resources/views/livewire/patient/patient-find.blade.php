@@ -103,7 +103,8 @@
                                     <td>
                                         <a href="/find/consultation/{{ $data->patient_id }}"
                                             class="btn btn-xs btn-outline-default">View</a>
-                                        <a href="#" class="btn btn-xs btn-outline-default">Update</a>
+                                        <a href="/consultation/update/{{ $data->patient_id }}"
+                                            class="btn btn-xs btn-outline-default">Update</a>
                                     </td>
                                 </tr>
                                 @endforeach

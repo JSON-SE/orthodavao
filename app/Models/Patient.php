@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Consultation;
+use App\Models\ImagePatient;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\ConsultationImagePatient;
-use App\Models\Consultation;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Patient extends Model
 {
@@ -41,5 +42,10 @@ class Patient extends Model
     public function role()
     {
         return $this->belongsTo(Role::class, 'role_id');
+    }
+
+    public function imagePatient()
+    {
+        return $this->hasMany(ImagePatient::class);
     }
 }

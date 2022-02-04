@@ -12,6 +12,7 @@ use App\Http\Controllers\ConsultationController;
 use App\Http\Livewire\Consultation\ConsultationShow;
 use App\Http\Livewire\Consultation\ConsultationIndex;
 use App\Http\Livewire\Consultation\ConsultationCreate;
+use App\Http\Livewire\Consultation\ConsultationUpdate;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,8 +46,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/consultation/create/{id}', ConsultationCreate::class);
     Route::post('/consultation/create', [ConsultationController::class, 'store'])->name('post-consultation');
     Route::get('/find/consultation/{id}', ConsultationShow::class);
+    Route::get('/consultation/update/{id}', ConsultationUpdate::class);
+    Route::get('/find/consultation/remove/{id}', [ConsultationController::class, 'destroy']);
+    Route::post('/consultation/update/{id}', [ConsultationController::class, 'update']);
 });
-
 // DataTale Routes
 Route::middleware(['auth'])->group(function () {
     // your routes goes here..

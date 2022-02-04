@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use App\Models\ConsultationImagePatient;
 use App\Models\Patient;
+use App\Models\ImagePatient;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Consultation extends Model
 {
@@ -19,13 +19,13 @@ class Consultation extends Model
         'plan',
     ];
 
-    public function consultationImagePatient()
-    {
-        return $this->hasMany(ConsultationImagePatient::class);
-    }
-
     public function patient()
     {
         return $this->belongsTo(Patient::class, 'patient_id');
+    }
+
+    public function imagePatient()
+    {
+        return $this->hasMany(ImagePatient::class);
     }
 }

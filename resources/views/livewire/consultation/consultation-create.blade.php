@@ -95,6 +95,11 @@
                 Consultation
             </div>
             <div class="grid-body">
+                @foreach($errors->all() as $error)
+                <div class="alert alert-danger">
+                    <li>{{ $error }}</li>
+                </div>
+                @endforeach
                 <form action="{{ route('post-consultation') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="text" name="patient_id" value="{{ $patient_id }}" hidden>
@@ -102,8 +107,8 @@
                         <div class="col-lg-12 col-md-12">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="date">Consultation Date</label>
-                                    <input type="datetime-local" name="date" class="form-control">
+                                    <label for="date">Consultation Date <strong style="color:red;">*</strong></label>
+                                    <input type="date" name="date" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -143,13 +148,9 @@
                             <div class="grid">
                                 <div class="grid-header">Image Upload</div>
                                 <div class="grid-body" align="center">
-                                    <div class="col-md-9 showcase_content_area">
-                                        <div class="custom-file mb-4">
-                                            <input type="file" class="custom-file-input" name="images[]" id="customFile"
-                                                multiple>
-                                            <label class="custom-file-label" for="customFile">Choose one or more
-                                                images</label>
-                                        </div>
+                                    <div class="col-lg-6 col-md-7 col-sm-9 col-12 mx-auto bg-primary">
+                                        <input type="file" class="form-control-file" name="images[]" id="customFile"
+                                            multiple>
                                     </div>
                                 </div>
                             </div>

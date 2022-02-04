@@ -15,7 +15,7 @@ class CreateConsultationsTable extends Migration
     {
         Schema::create('consultations', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('date');
+            $table->date('date');
             $table->foreignId('patient_id')->constrained('patients');
             $table->longText('subjective');
             $table->longText('objective');

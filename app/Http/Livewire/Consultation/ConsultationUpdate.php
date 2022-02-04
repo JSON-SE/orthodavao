@@ -6,7 +6,7 @@ use Livewire\Component;
 use App\Models\Consultation;
 use App\Models\ImagePatient;
 
-class ConsultationShow extends Component
+class ConsultationUpdate extends Component
 {
     public $consultation;
     public $image;
@@ -21,6 +21,6 @@ class ConsultationShow extends Component
     }
     public function render()
     {
-        return view('livewire.consultation.consultation-show')->extends('layouts.app');
+        return view('livewire.consultation.consultation-update')->extends('layouts.app');
     }
 }

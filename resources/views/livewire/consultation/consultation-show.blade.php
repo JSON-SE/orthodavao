@@ -59,22 +59,19 @@
                     <div class="grid-header">
                         Uploaded Image
                         <div class="grid-body">
-                            @if ($image[0]->image_patient_id != null)
-                            @foreach ($image as $img)
-                            <div class="col-md-6">
-                                <!-- ERROR: multiple image is not working -->
-                                <!-- TODO: checkout fancybox https://fancyapps.com/-->
-                                <a data-fancybox="gallery"
-                                    data-src="{{ asset('storage/image/'. $img->imagePatient->name) }}">
-                                    <img class="card-img-top img-fluid mt-2 img-thumbnail"
-                                        src=" {{ asset('storage/image/'. $img->imagePatient->name) }}" width="400px"
-                                        height="500px"></img>
-                                </a>
+                            <div class="row">
+                                @if (empty($image))
+                                <p>No uploaded image</p>
+                                @else
+                                @foreach ($image as $img)
+                                <div class="col-md-3 mt-2">
+                                    <a data-fancybox="gallery" data-src="{{ asset('image/'. $img->name) }}">
+                                        <img src="{{ asset('image/'. $img->name) }}" width="200px" height="250px"></img>
+                                    </a>
+                                </div>
+                                @endforeach
+                                @endif
                             </div>
-                            @endforeach
-                            @else
-                            <p>No uploaded image</p>
-                            @endif
                         </div>
                     </div>
                 </div>
