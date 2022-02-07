@@ -22,7 +22,6 @@ class RequestController extends Controller
         }
         $html = $builder->columns(
             [
-                ['']
                 ['data' => 'id', 'name' => 'id', 'title' => 'Id'],
                 ['data' => 'name', 'name' => 'name', 'title' => 'Name'],
             ],
