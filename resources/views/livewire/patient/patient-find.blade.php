@@ -10,14 +10,14 @@
     </div>
     @endif
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-5">
             <div class="grid">
+                <div class="grid-header">Patient Details</div>
                 <div class="grid-body">
-                    <div class="grid-header">Patient Details</div>
                     <div class="table-responsive">
                         <table class="table table-hover">
                             <thead>
-                                <th></th>
+                                <th>Details</th>
                                 <th></th>
                             </thead>
                             <tbody>
@@ -87,46 +87,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-6">
-            <div class="grid">
-                <div class="grid-body">
-                    <div class="grid-header">Patient Medical Request</div>
-                    <div class="table-responsive">
-                        <table class="table table-hover">
-                            <thead>
-                                <th></th>
-                                <th></th>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Diagnostics</td>
-                                    <td><a href="#" class="btn btn-xs btn-default">Request</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Referral</td>
-                                    <td><a href="#" class="btn btn-xs btn-default">Request</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Admission</td>
-                                    <td><a href="#" class="btn btn-xs btn-default">Request</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Prescription</td>
-                                    <td><a href="#" class="btn btn-xs btn-default">Request</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Medical Certificate</td>
-                                    <td><a href="#" class="btn btn-xs btn-default">Request</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
+        <div class="col-lg-7">
             <div class="grid">
                 <div class="grid-header">Consultation Records</div>
                 <div class="grid-body">

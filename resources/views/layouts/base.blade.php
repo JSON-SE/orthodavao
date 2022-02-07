@@ -21,7 +21,9 @@
         <link rel="stylesheet" href="{{ asset('css/main.css') }}">
         <!-- endinject -->
         <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
+        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" /> -->
+        <!-- <link rel="stylesheet" href="{{ asset('css/jquery.dataTables.min.css') }}"> -->
+        <!-- <link rel="stylesheet" href="https://cdn.datatables.net/select/1.3.4/css/select.dataTables.min.css"> -->
         @livewireStyles
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -30,8 +32,6 @@
     <body>
 
         @yield('body')
-
-
         <script src="{{ asset('vendors/js/core.js') }}"></script>
         <script src="{{ asset('vendors/js/vendor.addons.js') }}"></script>
         <!-- endinject -->
@@ -42,12 +42,15 @@
         <script src="{{ asset('js/template.js') }}"></script>
         <script src="{{ asset('js/forms/validation.js') }}"></script>
         <script src="{{ asset('js/dashboard.js') }}"></script>
-        <script src="{{ asset('js/data-table.js') }}"></script>
+        <!-- <script src="{{ asset('js/data-table.js') }}"></script> -->
+        <!-- test -->
         <script src="{{ asset('js/select2.min.js') }}"></script>
         <!-- DataTable Responsive -->
-        <script src="{{ asset('js/dataTables.fixedHeader.min.js') }}"></script>
+        <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+        <!-- <script src="{{ asset('js/dataTables.fixedHeader.min.js') }}"></script>
         <script src="{{ asset('js/dataTables.responsive.min.js') }}"></script>
-        <script src="{{ asset('js/responsive.bootstrap.min.js') }}"></script>
+        <script src="{{ asset('js/responsive.bootstrap.min.js') }}"></script> -->
+        <!-- <script src="https://cdn.datatables.net/select/1.3.4/js/dataTables.select.min.js"></script> -->
         <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
         <!-- endbuild -->
         <script>

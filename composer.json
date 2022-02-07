@@ -16,6 +16,7 @@
         "livewire/livewire": "^2.8",
         "orangehill/iseed": "^3.0",
         "woenel/prpcmblmts": "^1.0",
+        "yajra/laravel-datatables-html": "^4.0",
         "yajra/laravel-datatables-oracle": "^9.18"
     },
     "require-dev": {

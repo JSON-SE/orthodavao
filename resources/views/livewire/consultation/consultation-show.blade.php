@@ -13,6 +13,58 @@
         <div class="grid-body">
             <!-- TODO: show SOAP Records here.. (not final design) -->
             <div class="row">
+                <div class="col-lg-6">
+                    <div class="grid">
+                        <div class="grid-body">
+                            <div class="grid-header">Patient Medical Request</div>
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <th></th>
+                                        <th></th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>X-Ray</td>
+                                            <td><a href="/patient/request/x-ray/{{ $consultation->id }}"
+                                                    class="btn btn-xs btn-default">Request</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ultrasound</td>
+                                            <td><a href="#" class="btn btn-xs btn-default">Request</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Laboratory</td>
+                                            <td><a href="#" class="btn btn-xs btn-default">Request</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>MRI</td>
+                                            <td><a href="#" class="btn btn-xs btn-default">Request</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Prescription</td>
+                                            <td><a href="#" class="btn btn-xs btn-default">Request</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Referral</td>
+                                            <td><a href="#" class="btn btn-xs btn-default">Request</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Admission</td>
+                                            <td><a href="#" class="btn btn-xs btn-default">Request</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Medical Certificate</td>
+                                            <td><a href="#" class="btn btn-xs btn-default">Request</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-md-6 col-md-6 col-sm-12">
                     <div class="grid">
                         <div class="grid-header">

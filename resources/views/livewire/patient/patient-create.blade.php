@@ -5,11 +5,11 @@
     </ol>
     <div class="col-lg-8 col-md-7 col-sm-9 col-11 mx-auto">
         <div class="grid">
+            <div class="grid-header">
+                <h5>Patient Details</h5>
+                <small>Provide required fields below.</small>
+            </div>
             <div class="grid-body">
-                <header class="grid-header mt-5">
-                    <h5>Patient Details</h5>
-                    <small>Provide required fields below.</small>
-                </header>
                 <div class="alert alert-success alert-dismissible fade show {{ $notification ? ' d-block' : 'd-none' }}"
                     role="alert">
                     <i class="mdi mdi-check-circle mt-1 mr-1"></i> Successfully added to database

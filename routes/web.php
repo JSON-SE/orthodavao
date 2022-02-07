@@ -5,6 +5,7 @@ use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Auth\Register;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Patient\PatientFind;
+use App\Http\Controllers\RequestController;
 use App\Http\Livewire\Patient\PatientCreate;
 use App\Http\Livewire\Patient\PatientUpdate;
 use App\Http\Controllers\DataTableController;
@@ -13,6 +14,7 @@ use App\Http\Livewire\Consultation\ConsultationShow;
 use App\Http\Livewire\Consultation\ConsultationIndex;
 use App\Http\Livewire\Consultation\ConsultationCreate;
 use App\Http\Livewire\Consultation\ConsultationUpdate;
+use App\Http\Livewire\Request\Xray;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,4 +58,10 @@ Route::middleware(['auth'])->group(function () {
     // your routes goes here..
     Route::get('/datatable/patient', [DataTableController::class, 'dashboardPatientTable'])->name('patient-table');
     Route::get('/datatable/consultation', [DataTableController::class, 'consultationTable']);
+});
+
+// Request Routes
+Route::middleware(['auth'])->group(function () {
+    // Route::get('/patient/request/x-ray/{id}', Xray::class);
+    Route::get('/patient/request/x-ray/{id}', [RequestController::class, 'requestXRay']);
 });
