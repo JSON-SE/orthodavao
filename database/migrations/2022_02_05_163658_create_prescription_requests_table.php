@@ -15,6 +15,7 @@ class CreatePrescriptionRequestsTable extends Migration
     {
         Schema::create('prescription_requests', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->timestamps();
         });
     }

@@ -15,6 +15,7 @@ class CreateUltrasoundRequestsTable extends Migration
     {
         Schema::create('ultrasound_requests', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->timestamps();
         });
     }

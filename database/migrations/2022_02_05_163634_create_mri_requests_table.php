@@ -15,6 +15,7 @@ class CreateMriRequestsTable extends Migration
     {
         Schema::create('mri_requests', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->timestamps();
         });
     }

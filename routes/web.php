@@ -63,7 +63,14 @@ Route::middleware(['auth'])->group(function () {
 // Request Routes
 Route::middleware(['auth'])->group(function () {
     // Route::get('/patient/request/x-ray/{id}', Xray::class);
-    Route::get('/patient/request/x-ray/{id}', [RequestController::class, 'index']);
-    Route::get('/request/xray', [RequestController::class, 'requestXray']);
+
+    // Xray Routes
+    Route::get('/patient/request/x-ray/{id}', [RequestController::class, 'xrayIndex']);
+    Route::get('/request/xray', [RequestController::class, 'requestXrayDataTable']);
     Route::post('/request/xray/patient/{id}', [RequestController::class, 'generateXray']);
+
+    // Ultrasound Routes
+    Route::get('/patient/request/ultrasound/{id}', [RequestController::class, 'ultrasoundIndex']);
+    Route::get('/request/ultrasound', [RequestController::class, 'requestUltrasoundDataTable']);
+    Route::post('/request/ultrasound/patient/{id}', [RequestController::class, 'generateUltrasound']);
 });

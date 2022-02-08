@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Database\Seeders\RoleSeeder;
 use Database\Seeders\XrayRequestSeeder;
+use Database\Seeders\UltrasoundRequestSeeder;
 use Database\Seeders\PhilippineCitiesTableSeeder;
 use Database\Seeders\PhilippineRegionsTableSeeder;
 use Database\Seeders\PhilippineBarangaysTableSeeder;
@@ -26,5 +27,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PhilippineCitiesTableSeeder::class);
         $this->call(PhilippineBarangaysTableSeeder::class);
         $this->call(XrayRequestSeeder::class);
+        $this->call(UltrasoundRequestSeeder::class);
     }
 }
