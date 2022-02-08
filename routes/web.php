@@ -73,4 +73,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/patient/request/ultrasound/{id}', [RequestController::class, 'ultrasoundIndex']);
     Route::get('/request/ultrasound', [RequestController::class, 'requestUltrasoundDataTable']);
     Route::post('/request/ultrasound/patient/{id}', [RequestController::class, 'generateUltrasound']);
+
+    // Laboratory Routes
+    Route::get('/patient/request/laboratory/{id}', [RequestController::class, 'laboratoryIndex']);
+    Route::get('/request/laboratory', [RequestController::class, 'requestLaboratoryDataTable']);
+    Route::post('/request/laboratory/patient/{id}', [RequestController::class, 'generateLaboratory']);
 });

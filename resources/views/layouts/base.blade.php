@@ -21,7 +21,7 @@
         <link rel="stylesheet" href="{{ asset('css/main.css') }}">
         <!-- endinject -->
         <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
+        <link rel="stylesheet" href="{{ asset('css/fancybox.css') }}" />
         <!-- <link rel="stylesheet" href="{{ asset('css/jquery.dataTables.min.css') }}"> -->
         <!-- <link rel="stylesheet" href="https://cdn.datatables.net/select/1.3.4/css/select.dataTables.min.css"> -->
         @livewireStyles
@@ -51,7 +51,7 @@
         <script src="{{ asset('js/dataTables.responsive.min.js') }}"></script>
         <script src="{{ asset('js/responsive.bootstrap.min.js') }}"></script> -->
         <!-- <script src="https://cdn.datatables.net/select/1.3.4/js/dataTables.select.min.js"></script> -->
-        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+        <script src="{{ asset('js/fancybox.umd.js') }}"></script>
         <!-- endbuild -->
         <script>
             $(".alert").fadeTo(5000, 500).slideUp(500, function() {

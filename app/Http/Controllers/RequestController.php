@@ -6,6 +6,7 @@ use PDF;
 use App\Models\Patient;
 use App\Models\XrayRequest;
 use App\Models\Consultation;
+use App\Models\LaboratoryRequest;
 use Illuminate\Http\Request;
 use App\Models\PhilippineCity;
 use App\Models\PhilippineRegion;
@@ -88,8 +89,47 @@ class RequestController extends Controller
 
         $selectedRequest = $request->selected_request;
         // create a query to get all the selected request
-        $selectedRequestQuery = XrayRequest::whereIn('id', $selectedRequest)->get();
+        $selectedRequestQuery = UltrasoundRequest::whereIn('id', $selectedRequest)->get();
         $ultrasoundRequest = $selectedRequestQuery->toArray();
         return PDF::loadView('print.ultrasound', compact('ultrasoundRequest', 'consultation', 'region_description', 'province_description', 'city_municipality_description', 'barangay_description'))->setOption('page-width', '140')->setOption('page-height', '216')->setOption('margin-top', '0')->setOption('margin-right', '0')->setOption('margin-bottom', '0')->setOption('margin-left', '0')->setOption('footer-right', 'footer')->setOrientation('portrait')->inline('ultrasound.pdf');
+    }
+
+    // Laboratory Request
+    // create a public function called laboratoryIndex
+    public function laboratoryIndex($id)
+    {
+        $consultation = Consultation::with('patient')->where('id', $id)->first();
+        return view('request.laboratory', compact('consultation'));
+    }
+
+    // create a public function called requestLaboratoryDataTable
+    public function requestLaboratoryDataTable(Request $request)
+    {
+        if ($request->ajax()) {
+            $laboratoryRequest = LaboratoryRequest::all();
+            return DataTables::of($laboratoryRequest)->toJson();
+        }
+    }
+
+    // create a public function called generateLaboratory
+    public function generateLaboratory(Request $request, $id)
+    {
+        $consultation = Consultation::with('patient')->where('id', $id)->first();
+        // patient address query
+        $queryRegion = PhilippineRegion::where('region_code', '=', $consultation->patient->region_code)->first();
+        $region_description = $queryRegion->region_description;
+        $queryProvince = PhilippineProvince::where('region_code', '=', $consultation->patient->region_code)->first();
+        $province_description = $queryProvince->province_description;
+        $queryCityMunicipality = PhilippineCity::where('city_municipality_code', '=', $consultation->patient->city_municipality_code)->first();
+        $city_municipality_description = $queryCityMunicipality->city_municipality_description;
+        $queryBarangay = PhilippineBarangay::where('barangay_code', '=', $consultation->patient->barangay_code)->first();
+        $barangay_description = $queryBarangay->barangay_description;
+
+
+        $selectedRequest = $request->selected_request;
+        // create a query to get all the selected request
+        $selectedRequestQuery = LaboratoryRequest::whereIn('id', $selectedRequest)->get();
+        $laboratoryRequest = $selectedRequestQuery->toArray();
+        return PDF::loadView('print.laboratory', compact('laboratoryRequest', 'consultation', 'region_description', 'province_description', 'city_municipality_description', 'barangay_description'))->setOption('page-width', '140')->setOption('page-height', '216')->setOption('margin-top', '0')->setOption('margin-right', '0')->setOption('margin-bottom', '0')->setOption('margin-left', '0')->setOption('footer-right', 'footer')->setOrientation('portrait')->inline('laboratory.pdf');
     }
 }

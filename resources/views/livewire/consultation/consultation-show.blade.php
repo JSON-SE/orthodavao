@@ -36,7 +36,8 @@
                                         </tr>
                                         <tr>
                                             <td>Laboratory</td>
-                                            <td><a href="#" class="btn btn-xs btn-default">Request</a></td>
+                                            <td><a href="/patient/request/laboratory/{{ $consultation->id }}"
+                                                    class="btn btn-xs btn-default">Request</a></td>
                                         </tr>
                                         <tr>
                                             <td>MRI</td>

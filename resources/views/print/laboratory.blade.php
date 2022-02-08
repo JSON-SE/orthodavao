@@ -178,11 +178,11 @@
                <div class="col-xs-12">
                     <!-- Content -->
                     <br>
-                    <h5 align="center"><strong>ULTRASOUND REQUEST</strong></h5>
+                    <h5 align="center"><strong>LABORATORY REQUEST</strong></h5>
                     <br>
-                    @foreach($ultrasoundRequest as $ultrasound)
+                    @foreach($laboratoryRequest as $laboratory)
                     <ul style="margin: 0;">
-                         <li>{{$ultrasound['name']}}</li>
+                         <li>{{$laboratory['name']}}</li>
                     </ul>
                     @endforeach
                </div>
