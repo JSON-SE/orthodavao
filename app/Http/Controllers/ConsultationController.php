@@ -120,7 +120,7 @@ class ConsultationController extends Controller
             }
         }
         $image->delete();
-        session()->put('message', 'Deleted Successfuly.');
+        session()->put('message', 'Image Deleted Successfuly.');
         return back();
     }
 
@@ -143,7 +143,7 @@ class ConsultationController extends Controller
             }
         }
         $consultation->delete();
-        session()->put('message', 'Deleted Successfuly.');
+        session()->put('message', 'Consultation Deleted Successfuly.');
         return back();
     }
 }

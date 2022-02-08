@@ -2,13 +2,18 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
         "barryvdh/laravel-dompdf": "^1.0",
+        "barryvdh/laravel-snappy": "^1.0",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "h4cc/wkhtmltopdf-amd64": "^0.12.4",
         "intervention/image": "^2.7",
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
@@ -16,8 +21,7 @@
         "livewire/livewire": "^2.8",
         "orangehill/iseed": "^3.0",
         "woenel/prpcmblmts": "^1.0",
-        "yajra/laravel-datatables-html": "^4.0",
-        "yajra/laravel-datatables-oracle": "^9.18"
+        "yajra/laravel-datatables-oracle": "~9.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

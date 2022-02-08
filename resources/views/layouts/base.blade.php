@@ -21,7 +21,7 @@
         <link rel="stylesheet" href="{{ asset('css/main.css') }}">
         <!-- endinject -->
         <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" />
-        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" /> -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
         <!-- <link rel="stylesheet" href="{{ asset('css/jquery.dataTables.min.css') }}"> -->
         <!-- <link rel="stylesheet" href="https://cdn.datatables.net/select/1.3.4/css/select.dataTables.min.css"> -->
         @livewireStyles
@@ -86,7 +86,6 @@
                         },
                     ]
                 });
-                // $('div.dataTables_filter input').focus()
             });
             tinymce.init({
                 selector: 'textarea#subjective',

@@ -19,6 +19,11 @@
           <link rel="shortcut icon" href="{{ asset('css/select2.min.css') }}" />
           <link rel="stylesheet" href="{{ asset('css/demo_1/style.css') }}">
           <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+          <link rel="stylesheet" href="{{ asset('css/datatables.min.css') }}">
+          <link type="text/css"
+               href="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.11/css/dataTables.checkboxes.css"
+               rel="stylesheet" />
+          <link rel="stylesheet" href="{{ asset('css/dataTables.checkboxes.css') }}">
           <!-- endinject -->
           <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" />
           @livewireStyles
@@ -181,7 +186,10 @@
           <script src="{{ asset('js/dashboard.js') }}"></script>
           <script src="{{ asset('js/select2.min.js') }}"></script>
           <!-- DataTable Responsive -->
-          <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+          <script src="{{ asset('js/datatables.min.js') }}"></script>
+          <script type="text/javascript"
+               src="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.11/js/dataTables.checkboxes.min.js"></script>
+          <script src="{{ asset('js/dataTables.checkboxes.min.js') }}"></script>
           <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
           <!-- endbuild -->
           <script>
@@ -197,6 +205,53 @@
                               .caption
                          );
                     },
+               });
+          </script>
+          <script>
+               $(document).ready(function() {
+                    var table = $('#xrayRequestTable').DataTable({
+                         'processing': true,
+                         'serverSide': true,
+                         'ajax': '/request/xray',
+                         'columnDefs': [{
+                              'targets': 0,
+                              'checkboxes': {
+                                   'selectRow': true
+                              }
+                         }],
+                         'select': {
+                              'style': 'multi'
+                         },
+                         'order': [
+                              [1, 'asc']
+                         ],
+                         columns: [{
+                              data: 'id',
+                              name: 'id'
+                         }, {
+                              data: 'name',
+                              name: 'name'
+                         }]
+
+                    });
+
+
+                    // Handle form submission event
+                    $('#form-xray').on('submit', function(e) {
+                         var form = this;
+                         var rows_selected = table.column(0).checkboxes.selected();
+
+                         // Iterate over all selected checkboxes
+                         $.each(rows_selected, function(index, rowId) {
+                              // Create a hidden element
+                              $(form).append(
+                                   $('<input>')
+                                   .attr('type', 'hidden')
+                                   .attr('name', 'selected_request[]')
+                                   .val(rowId)
+                              );
+                         });
+                    });
                });
           </script>
           @yield('scripts')

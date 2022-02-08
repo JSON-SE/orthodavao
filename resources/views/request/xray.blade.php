@@ -17,22 +17,39 @@
 </div>
 @endif
 
-<div class="grid">
-     <div class="grid-header">
-          Xray Request
-     </div>
-     <div class="grid-body">
-          <div class="col-md-12">
+<div class="col-lg-8 col-md-12 col-sm-12 col-12 mx-auto">
+     <div class="grid">
+          <div class="grid-header">
+               Xray Request
+          </div>
+          <div class="grid-body">
                <div class="row">
                     <div class="table-responsive">
-                         {!! $html->table() !!}
+                         <form action="/request/xray/patient/{{ $consultation->id }}" method="POST" id="form-xray">
+                              @csrf
+                              <table class="table table-bordered" id="xrayRequestTable" width="100%">
+                                   <thead>
+                                        <th></th>
+                                        <th>Name</th>
+                                   </thead>
+                                   <tbody>
+                                   </tbody>
+                                   <tfoot>
+                                        <th></th>
+                                        <th>Name</th>
+                                   </tfoot>
+                              </table>
+                              <!-- create a submit button positioned at the center -->
+                              <div class="col-lg-12">
+                                   <div class="text-center mt-5 mb-5">
+                                        <small>Double check before clicking submit</small><br>
+                                        <button type="submit" class="btn btn-primary">Request X-Ray</button>
+                                   </div>
+                              </div>
+                         </form>
                     </div>
                </div>
           </div>
      </div>
 </div>
-@endsection
-
-@section('scripts')
-{!! $html->scripts() !!}
 @endsection

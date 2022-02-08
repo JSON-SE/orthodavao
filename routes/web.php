@@ -63,5 +63,7 @@ Route::middleware(['auth'])->group(function () {
 // Request Routes
 Route::middleware(['auth'])->group(function () {
     // Route::get('/patient/request/x-ray/{id}', Xray::class);
-    Route::get('/patient/request/x-ray/{id}', [RequestController::class, 'requestXRay']);
+    Route::get('/patient/request/x-ray/{id}', [RequestController::class, 'index']);
+    Route::get('/request/xray', [RequestController::class, 'requestXray']);
+    Route::post('/request/xray/patient/{id}', [RequestController::class, 'generateXray']);
 });
