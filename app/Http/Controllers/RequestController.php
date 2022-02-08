@@ -4,16 +4,17 @@ namespace App\Http\Controllers;
 
 use PDF;
 use App\Models\Patient;
+use App\Models\MriRequest;
 use App\Models\XrayRequest;
 use App\Models\Consultation;
-use App\Models\LaboratoryRequest;
 use Illuminate\Http\Request;
 use App\Models\PhilippineCity;
 use App\Models\PhilippineRegion;
 use Yajra\DataTables\DataTables;
+use App\Models\LaboratoryRequest;
+use App\Models\UltrasoundRequest;
 use App\Models\PhilippineBarangay;
 use App\Models\PhilippineProvince;
-use App\Models\UltrasoundRequest;
 use Yajra\DataTables\Html\Builder;
 
 class RequestController extends Controller
@@ -125,11 +126,48 @@ class RequestController extends Controller
         $queryBarangay = PhilippineBarangay::where('barangay_code', '=', $consultation->patient->barangay_code)->first();
         $barangay_description = $queryBarangay->barangay_description;
 
-
         $selectedRequest = $request->selected_request;
         // create a query to get all the selected request
         $selectedRequestQuery = LaboratoryRequest::whereIn('id', $selectedRequest)->get();
         $laboratoryRequest = $selectedRequestQuery->toArray();
         return PDF::loadView('print.laboratory', compact('laboratoryRequest', 'consultation', 'region_description', 'province_description', 'city_municipality_description', 'barangay_description'))->setOption('page-width', '140')->setOption('page-height', '216')->setOption('margin-top', '0')->setOption('margin-right', '0')->setOption('margin-bottom', '0')->setOption('margin-left', '0')->setOption('footer-right', 'footer')->setOrientation('portrait')->inline('laboratory.pdf');
+    }
+
+    // create a public function called mriIndex
+    public function mriIndex($id)
+    {
+        $consultation = Consultation::with('patient')->where('id', $id)->first();
+        return view('request.mri', compact('consultation'));
+    }
+
+    // create a public function called requestMriDataTable
+    public function requestMriDataTable(Request $request)
+    {
+        if ($request->ajax()) {
+            $mriRequest = MriRequest::all();
+            return DataTables::of($mriRequest)->toJson();
+        }
+    }
+
+    // create a public function called generateMRI
+    public function generateMRI(Request $request, $id)
+    {
+        $consultation = Consultation::with('patient')->where('id', $id)->first();
+        // patient address query
+        $queryRegion = PhilippineRegion::where('region_code', '=', $consultation->patient->region_code)->first();
+        $region_description = $queryRegion->region_description;
+        $queryProvince = PhilippineProvince::where('region_code', '=', $consultation->patient->region_code)->first();
+        $province_description = $queryProvince->province_description;
+        $queryCityMunicipality = PhilippineCity::where('city_municipality_code', '=', $consultation->patient->city_municipality_code)->first();
+        $city_municipality_description = $queryCityMunicipality->city_municipality_description;
+        $queryBarangay = PhilippineBarangay::where('barangay_code', '=', $consultation->patient->barangay_code)->first();
+        $barangay_description = $queryBarangay->barangay_description;
+
+        $selectedRequest = $request->selected_request;
+        $creatinine = $request->creatinine;
+        // create a query to get all the selected request
+        $selectedRequestQuery = MriRequest::whereIn('id', $selectedRequest)->get();
+        $mriRequest = $selectedRequestQuery->toArray();
+        return PDF::loadView('print.mri', compact('mriRequest', 'creatinine', 'consultation', 'region_description', 'province_description', 'city_municipality_description', 'barangay_description'))->setOption('page-width', '140')->setOption('page-height', '216')->setOption('margin-top', '0')->setOption('margin-right', '0')->setOption('margin-bottom', '0')->setOption('margin-left', '0')->setOption('footer-right', 'footer')->setOrientation('portrait')->inline('mri.pdf');
     }
 }

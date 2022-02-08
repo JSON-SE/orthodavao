@@ -41,7 +41,8 @@
                                         </tr>
                                         <tr>
                                             <td>MRI</td>
-                                            <td><a href="#" class="btn btn-xs btn-default">Request</a></td>
+                                            <td><a href="/patient/request/mri/{{ $consultation->id }}"
+                                                    class="btn btn-xs btn-default">Request</a></td>
                                         </tr>
                                         <tr>
                                             <td>Prescription</td>

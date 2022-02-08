@@ -78,4 +78,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/patient/request/laboratory/{id}', [RequestController::class, 'laboratoryIndex']);
     Route::get('/request/laboratory', [RequestController::class, 'requestLaboratoryDataTable']);
     Route::post('/request/laboratory/patient/{id}', [RequestController::class, 'generateLaboratory']);
+
+    // MRI Routes
+    Route::get('/patient/request/mri/{id}', [RequestController::class, 'mriIndex']);
+    Route::get('/request/mri', [RequestController::class, 'requestMriDataTable']);
+    Route::post('/request/mri/patient/{id}', [RequestController::class, 'generateMRI']);
 });
