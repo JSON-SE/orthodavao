@@ -40,8 +40,13 @@
                                                     class="btn btn-xs btn-default">Request</a></td>
                                         </tr>
                                         <tr>
-                                            <td>MRI</td>
+                                            <td>MRI Scan</td>
                                             <td><a href="/patient/request/mri/{{ $consultation->id }}"
+                                                    class="btn btn-xs btn-default">Request</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>CT Scan</td>
+                                            <td><a href="/patient/request/ct/{{ $consultation->id }}"
                                                     class="btn btn-xs btn-default">Request</a></td>
                                         </tr>
                                         <tr>

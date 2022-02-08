@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\MriRequest;
 use Illuminate\Database\Seeder;
 use Database\Seeders\RoleSeeder;
+use Database\Seeders\CtRequestSeeder;
 use Database\Seeders\MriRequestSeeder;
 use Database\Seeders\XrayRequestSeeder;
 use Database\Seeders\LaboratoryRequestSeeder;
@@ -33,5 +34,6 @@ class DatabaseSeeder extends Seeder
         $this->call(UltrasoundRequestSeeder::class);
         $this->call(LaboratoryRequestSeeder::class);
         $this->call(MriRequestSeeder::class);
+        $this->call(CtRequestSeeder::class);
     }
 }

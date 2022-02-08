@@ -7,7 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
-    'App\\DataTables\\XrayRequestDataTable' => $baseDir . '/app/DataTables/XrayRequestDataTable.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\ConsultationController' => $baseDir . '/app/Http/Controllers/ConsultationController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
@@ -24,7 +23,6 @@ return array(
     'App\\Http\\Livewire\\Patient\\PatientCreate' => $baseDir . '/app/Http/Livewire/Patient/PatientCreate.php',
     'App\\Http\\Livewire\\Patient\\PatientFind' => $baseDir . '/app/Http/Livewire/Patient/PatientFind.php',
     'App\\Http\\Livewire\\Patient\\PatientUpdate' => $baseDir . '/app/Http/Livewire/Patient/PatientUpdate.php',
-    'App\\Http\\Livewire\\Request\\Xray' => $baseDir . '/app/Http/Livewire/Request/Xray.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',
     'App\\Http\\Middleware\\PreventRequestsDuringMaintenance' => $baseDir . '/app/Http/Middleware/PreventRequestsDuringMaintenance.php',
@@ -34,6 +32,7 @@ return array(
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Models\\Consultation' => $baseDir . '/app/Models/Consultation.php',
+    'App\\Models\\CtRequest' => $baseDir . '/app/Models/CtRequest.php',
     'App\\Models\\ImagePatient' => $baseDir . '/app/Models/ImagePatient.php',
     'App\\Models\\LaboratoryRequest' => $baseDir . '/app/Models/LaboratoryRequest.php',
     'App\\Models\\MriRequest' => $baseDir . '/app/Models/MriRequest.php',

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use PDF;
 use App\Models\Patient;
+use App\Models\CtRequest;
 use App\Models\MriRequest;
 use App\Models\XrayRequest;
 use App\Models\Consultation;
@@ -133,6 +134,7 @@ class RequestController extends Controller
         return PDF::loadView('print.laboratory', compact('laboratoryRequest', 'consultation', 'region_description', 'province_description', 'city_municipality_description', 'barangay_description'))->setOption('page-width', '140')->setOption('page-height', '216')->setOption('margin-top', '0')->setOption('margin-right', '0')->setOption('margin-bottom', '0')->setOption('margin-left', '0')->setOption('footer-right', 'footer')->setOrientation('portrait')->inline('laboratory.pdf');
     }
 
+    // MRI Scan
     // create a public function called mriIndex
     public function mriIndex($id)
     {
@@ -169,5 +171,44 @@ class RequestController extends Controller
         $selectedRequestQuery = MriRequest::whereIn('id', $selectedRequest)->get();
         $mriRequest = $selectedRequestQuery->toArray();
         return PDF::loadView('print.mri', compact('mriRequest', 'creatinine', 'consultation', 'region_description', 'province_description', 'city_municipality_description', 'barangay_description'))->setOption('page-width', '140')->setOption('page-height', '216')->setOption('margin-top', '0')->setOption('margin-right', '0')->setOption('margin-bottom', '0')->setOption('margin-left', '0')->setOption('footer-right', 'footer')->setOrientation('portrait')->inline('mri.pdf');
+    }
+
+    // CT Scan
+    // create a public function called ctIndex
+    public function ctIndex($id)
+    {
+        $consultation = Consultation::with('patient')->where('id', $id)->first();
+        return view('request.ct', compact('consultation'));
+    }
+
+    // create a public function called requestCtDataTable
+    public function requestCtDataTable(Request $request)
+    {
+        if ($request->ajax()) {
+            $ctRequest = CtRequest::all();
+            return DataTables::of($ctRequest)->toJson();
+        }
+    }
+
+    // create a public function called generateCT
+    public function generateCT(Request $request, $id)
+    {
+        $consultation = Consultation::with('patient')->where('id', $id)->first();
+        // patient address query
+        $queryRegion = PhilippineRegion::where('region_code', '=', $consultation->patient->region_code)->first();
+        $region_description = $queryRegion->region_description;
+        $queryProvince = PhilippineProvince::where('region_code', '=', $consultation->patient->region_code)->first();
+        $province_description = $queryProvince->province_description;
+        $queryCityMunicipality = PhilippineCity::where('city_municipality_code', '=', $consultation->patient->city_municipality_code)->first();
+        $city_municipality_description = $queryCityMunicipality->city_municipality_description;
+        $queryBarangay = PhilippineBarangay::where('barangay_code', '=', $consultation->patient->barangay_code)->first();
+        $barangay_description = $queryBarangay->barangay_description;
+
+        $selectedRequest = $request->selected_request;
+        $creatinine = $request->creatinine;
+        // create a query to get all the selected request
+        $selectedRequestQuery = CtRequest::whereIn('id', $selectedRequest)->get();
+        $ctRequest = $selectedRequestQuery->toArray();
+        return PDF::loadView('print.ct', compact('ctRequest', 'creatinine', 'consultation', 'region_description', 'province_description', 'city_municipality_description', 'barangay_description'))->setOption('page-width', '140')->setOption('page-height', '216')->setOption('margin-top', '0')->setOption('margin-right', '0')->setOption('margin-bottom', '0')->setOption('margin-left', '0')->setOption('footer-right', 'footer')->setOrientation('portrait')->inline('ct.pdf');
     }
 }

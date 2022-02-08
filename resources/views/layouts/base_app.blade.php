@@ -395,6 +395,53 @@
                          });
                     });
                });
+
+               // CT Scan
+               $(document).ready(function() {
+                    var table = $('#ctRequestTable').DataTable({
+                         'processing': true,
+                         'serverSide': true,
+                         'ajax': '/request/ct',
+                         'columnDefs': [{
+                              'targets': 0,
+                              'checkboxes': {
+                                   'selectRow': true
+                              }
+                         }],
+                         'select': {
+                              'style': 'multi'
+                         },
+                         'order': [
+                              [1, 'asc']
+                         ],
+                         columns: [{
+                              data: 'id',
+                              name: 'id'
+                         }, {
+                              data: 'name',
+                              name: 'name'
+                         }]
+
+                    });
+
+
+                    // Handle form submission event
+                    $('#form-ct').on('submit', function(e) {
+                         var form = this;
+                         var rows_selected = table.column(0).checkboxes.selected();
+
+                         // Iterate over all selected checkboxes
+                         $.each(rows_selected, function(index, rowId) {
+                              // Create a hidden element
+                              $(form).append(
+                                   $('<input>')
+                                   .attr('type', 'hidden')
+                                   .attr('name', 'selected_request[]')
+                                   .val(rowId)
+                              );
+                         });
+                    });
+               });
           </script>
           @yield('scripts')
           @livewireScripts

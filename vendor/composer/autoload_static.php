@@ -595,7 +595,6 @@ class ComposerStaticInit3f38288973047dff8793d01024e322df
 
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
-        'App\\DataTables\\XrayRequestDataTable' => __DIR__ . '/../..' . '/app/DataTables/XrayRequestDataTable.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\ConsultationController' => __DIR__ . '/../..' . '/app/Http/Controllers/ConsultationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
@@ -612,7 +611,6 @@ class ComposerStaticInit3f38288973047dff8793d01024e322df
         'App\\Http\\Livewire\\Patient\\PatientCreate' => __DIR__ . '/../..' . '/app/Http/Livewire/Patient/PatientCreate.php',
         'App\\Http\\Livewire\\Patient\\PatientFind' => __DIR__ . '/../..' . '/app/Http/Livewire/Patient/PatientFind.php',
         'App\\Http\\Livewire\\Patient\\PatientUpdate' => __DIR__ . '/../..' . '/app/Http/Livewire/Patient/PatientUpdate.php',
-        'App\\Http\\Livewire\\Request\\Xray' => __DIR__ . '/../..' . '/app/Http/Livewire/Request/Xray.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\PreventRequestsDuringMaintenance' => __DIR__ . '/../..' . '/app/Http/Middleware/PreventRequestsDuringMaintenance.php',
@@ -622,6 +620,7 @@ class ComposerStaticInit3f38288973047dff8793d01024e322df
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Models\\Consultation' => __DIR__ . '/../..' . '/app/Models/Consultation.php',
+        'App\\Models\\CtRequest' => __DIR__ . '/../..' . '/app/Models/CtRequest.php',
         'App\\Models\\ImagePatient' => __DIR__ . '/../..' . '/app/Models/ImagePatient.php',
         'App\\Models\\LaboratoryRequest' => __DIR__ . '/../..' . '/app/Models/LaboratoryRequest.php',
         'App\\Models\\MriRequest' => __DIR__ . '/../..' . '/app/Models/MriRequest.php',

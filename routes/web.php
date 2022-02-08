@@ -83,4 +83,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/patient/request/mri/{id}', [RequestController::class, 'mriIndex']);
     Route::get('/request/mri', [RequestController::class, 'requestMriDataTable']);
     Route::post('/request/mri/patient/{id}', [RequestController::class, 'generateMRI']);
+
+    // Ct Routes
+    Route::get('/patient/request/ct/{id}', [RequestController::class, 'ctIndex']);
+    Route::get('/request/ct', [RequestController::class, 'requestCtDataTable']);
+    Route::post('/request/ct/patient/{id}', [RequestController::class, 'generateCT']);
 });

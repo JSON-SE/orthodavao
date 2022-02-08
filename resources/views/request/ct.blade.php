@@ -7,7 +7,7 @@
                {{\Carbon\Carbon::parse($consultation->date)->format('l jS \\of F Y h:i:s A');}}</a>
      </li>
      <li class="breadcrumb-item active" aria-current="page">
-          MRI Scan Request
+          CT Scan Request
      </li>
 </ol>
 @if (session()->has('message'))
@@ -20,14 +20,14 @@
 <div class="col-lg-8 col-md-12 col-sm-12 col-12 mx-auto">
      <div class="grid">
           <div class="grid-header">
-               MRI Scan Request
+               CT Scan Request
           </div>
           <div class="grid-body">
                <div class="row">
                     <div class="table-responsive">
-                         <form action="/request/mri/patient/{{ $consultation->id }}" method="POST" id="form-mri">
+                         <form action="/request/ct/patient/{{ $consultation->id }}" method="POST" id="form-ct">
                               @csrf
-                              <table class="table table-bordered" id="mriRequestTable" width="100%">
+                              <table class="table table-bordered" id="ctRequestTable" width="100%">
                                    <thead>
                                         <th></th>
                                         <th>Name</th>
@@ -56,7 +56,7 @@
                               <div class="col-lg-12">
                                    <div class="text-center mt-5 mb-5">
                                         <small>Double check before clicking submit</small><br>
-                                        <button type="submit" class="btn btn-primary">Request MRI Scan</button>
+                                        <button type="submit" class="btn btn-primary">Request CT Scan</button>
                                    </div>
                               </div>
                          </form>
