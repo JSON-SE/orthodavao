@@ -1,10 +1,8 @@
 TODO: 
-1. PatientCreate - Revise Address into (prpcmblmts). Refer to EVMS - Done
-2. PatientUpdate - Create - Done 
-3. ConsultationCreate - Create - Done
-3.1 Consultation Date Migration - In Progress
-4. ConsultationUpdate - Create - Not Started
-5. Livewire Controller Except DataTableController 
+1. Re-check Breadcrumbs
+2. Print Result - Suffix - Create a statement if patient has a suffix or not 
+3. Utilize Middleware for admin and encoders with middleware error messages
+4. Create Patient & Update Patient Validation Bugs
 
 ERROR:
 2. Login - No Error Message
