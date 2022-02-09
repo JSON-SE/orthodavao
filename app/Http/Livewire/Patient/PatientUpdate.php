@@ -72,10 +72,10 @@ class PatientUpdate extends Component
     protected $rules = [
         'firstname' => 'required',
         'lastname' => 'required',
+        'birthdate' => 'required',
         'age' => 'required',
         'gender' => 'required',
-        'civil_status' => 'required',
-        'contact' => 'min:18',
+        'civil_status' => 'required'
     ];
 
     public function updated($propertyName)

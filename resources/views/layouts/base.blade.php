@@ -111,6 +111,12 @@
                 toolbar: 'numlist',
             });
 
+            tinymce.init({
+                selector: 'textarea#note',
+                plugins: 'lists',
+                toolbar: 'numlist',
+            });
+
             $(function() {
                 $('#findPatientConsultationTable').DataTable();
             });

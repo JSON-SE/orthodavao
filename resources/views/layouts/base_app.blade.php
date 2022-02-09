@@ -503,6 +503,14 @@
                     });
                });
           </script>
+
+          <script>
+               tinymce.init({
+                    selector: 'textarea#note',
+                    plugins: 'lists',
+                    toolbar: 'numlist',
+               });
+          </script>
           @yield('scripts')
           @livewireScripts
      </body>

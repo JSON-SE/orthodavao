@@ -56,7 +56,8 @@
                                         </tr>
                                         <tr>
                                             <td>Referral</td>
-                                            <td><a href="#" class="btn btn-xs btn-default">Request</a></td>
+                                            <td><a href="/patient/request/referral/{{ $consultation->id }}"
+                                                    class="btn btn-xs btn-default">Request</a></td>
                                         </tr>
                                         <tr>
                                             <td>Admission</td>

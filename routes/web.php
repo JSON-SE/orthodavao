@@ -93,4 +93,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/patient/request/prescription/{id}', [RequestController::class, 'prescriptionIndex']);
     Route::get('/request/prescription', [RequestController::class, 'requestPrescriptionDataTable']);
     Route::post('/request/prescription/patient/{id}', [RequestController::class, 'generatePrescription']);
+
+    // Referral Routes
+    Route::get('/patient/request/referral/{id}', [RequestController::class, 'referralIndex']);
+    Route::get('/request/referral', [RequestController::class, 'requestReferralDataTable']);
+    Route::post('/request/referral/patient/{id}', [RequestController::class, 'generateReferral']);
 });
