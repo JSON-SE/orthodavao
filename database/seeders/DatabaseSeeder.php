@@ -10,6 +10,7 @@ use Database\Seeders\MriRequestSeeder;
 use Database\Seeders\XrayRequestSeeder;
 use Database\Seeders\LaboratoryRequestSeeder;
 use Database\Seeders\UltrasoundRequestSeeder;
+use Database\Seeders\PrescriptionRequestSeeder;
 use Database\Seeders\PhilippineCitiesTableSeeder;
 use Database\Seeders\PhilippineRegionsTableSeeder;
 use Database\Seeders\PhilippineBarangaysTableSeeder;
@@ -35,5 +36,6 @@ class DatabaseSeeder extends Seeder
         $this->call(LaboratoryRequestSeeder::class);
         $this->call(MriRequestSeeder::class);
         $this->call(CtRequestSeeder::class);
+        $this->call(PrescriptionRequestSeeder::class);
     }
 }

@@ -17,6 +17,7 @@ use App\Models\UltrasoundRequest;
 use App\Models\PhilippineBarangay;
 use App\Models\PhilippineProvince;
 use Yajra\DataTables\Html\Builder;
+use App\Models\PrescriptionRequest;
 
 class RequestController extends Controller
 {
@@ -210,5 +211,43 @@ class RequestController extends Controller
         $selectedRequestQuery = CtRequest::whereIn('id', $selectedRequest)->get();
         $ctRequest = $selectedRequestQuery->toArray();
         return PDF::loadView('print.ct', compact('ctRequest', 'creatinine', 'consultation', 'region_description', 'province_description', 'city_municipality_description', 'barangay_description'))->setOption('page-width', '140')->setOption('page-height', '216')->setOption('margin-top', '0')->setOption('margin-right', '0')->setOption('margin-bottom', '0')->setOption('margin-left', '0')->setOption('footer-right', 'footer')->setOrientation('portrait')->inline('ct.pdf');
+    }
+
+    // Prescription
+    // create a public function called prescriptionIndex
+    public function prescriptionIndex($id)
+    {
+        $consultation = Consultation::with('patient')->where('id', $id)->first();
+        return view('request.prescription', compact('consultation'));
+    }
+
+    // create a public function called requestPrescriptionDataTable
+    public function requestPrescriptionDataTable(Request $request)
+    {
+        if ($request->ajax()) {
+            $prescriptionRequest = PrescriptionRequest::all();
+            return DataTables::of($prescriptionRequest)->toJson();
+        }
+    }
+
+    // create a public function called generatePrescription
+    public function generatePrescription(Request $request, $id)
+    {
+        $consultation = Consultation::with('patient')->where('id', $id)->first();
+        // patient address query
+        $queryRegion = PhilippineRegion::where('region_code', '=', $consultation->patient->region_code)->first();
+        $region_description = $queryRegion->region_description;
+        $queryProvince = PhilippineProvince::where('region_code', '=', $consultation->patient->region_code)->first();
+        $province_description = $queryProvince->province_description;
+        $queryCityMunicipality = PhilippineCity::where('city_municipality_code', '=', $consultation->patient->city_municipality_code)->first();
+        $city_municipality_description = $queryCityMunicipality->city_municipality_description;
+        $queryBarangay = PhilippineBarangay::where('barangay_code', '=', $consultation->patient->barangay_code)->first();
+        $barangay_description = $queryBarangay->barangay_description;
+
+        $selectedRequest = $request->selected_request;
+        // create a query to get all the selected request
+        $selectedRequestQuery = PrescriptionRequest::whereIn('id', $selectedRequest)->get();
+        $prescriptionRequest = $selectedRequestQuery->toArray();
+        return PDF::loadView('print.prescription', compact('prescriptionRequest', 'consultation', 'region_description', 'province_description', 'city_municipality_description', 'barangay_description'))->setOption('page-width', '140')->setOption('page-height', '216')->setOption('margin-top', '0')->setOption('margin-right', '0')->setOption('margin-bottom', '0')->setOption('margin-left', '0')->setOption('footer-right', 'footer')->setOrientation('portrait')->inline('prescription.pdf');
     }
 }

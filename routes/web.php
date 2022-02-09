@@ -88,4 +88,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/patient/request/ct/{id}', [RequestController::class, 'ctIndex']);
     Route::get('/request/ct', [RequestController::class, 'requestCtDataTable']);
     Route::post('/request/ct/patient/{id}', [RequestController::class, 'generateCT']);
+
+    // Prescription Routes
+    Route::get('/patient/request/prescription/{id}', [RequestController::class, 'prescriptionIndex']);
+    Route::get('/request/prescription', [RequestController::class, 'requestPrescriptionDataTable']);
+    Route::post('/request/prescription/patient/{id}', [RequestController::class, 'generatePrescription']);
 });
