@@ -291,4 +291,43 @@ class RequestController extends Controller
 
         return PDF::loadView('print.referral', compact('referralRequest', 'consultation', 'region_description', 'province_description', 'city_municipality_description', 'barangay_description'))->setOption('page-width', '140')->setOption('page-height', '216')->setOption('margin-top', '0')->setOption('margin-right', '0')->setOption('margin-bottom', '0')->setOption('margin-left', '0')->setOption('footer-right', 'footer')->setOrientation('portrait')->inline('referral.pdf');
     }
+
+    // Admission
+    // create a public function called admissionIndex
+    public function admissionIndex($id)
+    {
+        $consultation = Consultation::with('patient')->where('id', $id)->first();
+        return view('request.admission', compact('consultation'));
+    }
+
+    // create a public function called generateAdmission
+    public function generateAdmission(Request $request, $id)
+    {
+        $consultation = Consultation::with('patient')->where('id', $id)->first();
+        // patient address query
+        $queryRegion = PhilippineRegion::where('region_code', '=', $consultation->patient->region_code)->first();
+        $region_description = $queryRegion->region_description;
+        $queryProvince = PhilippineProvince::where('region_code', '=', $consultation->patient->region_code)->first();
+        $province_description = $queryProvince->province_description;
+        $queryCityMunicipality = PhilippineCity::where('city_municipality_code', '=', $consultation->patient->city_municipality_code)->first();
+        $city_municipality_description = $queryCityMunicipality->city_municipality_description;
+        $queryBarangay = PhilippineBarangay::where('barangay_code', '=', $consultation->patient->barangay_code)->first();
+        $barangay_description = $queryBarangay->barangay_description;
+
+        $admissionRequest = [
+            'input_1' => $request->input_1,
+            'input_2' => $request->input_2,
+            'work_up' => $request->work_up,
+            'IVF' => $request->IVF,
+            'meds' => $request->meds,
+            'other_concern' => $request->other_concern,
+            'subjective' => $consultation->subjective,
+            'objective' => $consultation->objective,
+            'assessment' => $consultation->assessment,
+            'plan' => $consultation->plan,
+            'note' => $request->note,
+        ];
+
+        return PDF::loadView('print.admission', compact('admissionRequest', 'consultation', 'region_description', 'province_description', 'city_municipality_description', 'barangay_description'))->setOption('page-width', '140')->setOption('page-height', '216')->setOption('margin-top', '0')->setOption('margin-right', '0')->setOption('margin-bottom', '0')->setOption('margin-left', '0')->setOption('footer-right', 'footer')->setOrientation('portrait')->inline('admission.pdf');
+    }
 }

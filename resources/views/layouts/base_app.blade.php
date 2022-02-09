@@ -508,7 +508,25 @@
                tinymce.init({
                     selector: 'textarea#note',
                     plugins: 'lists',
-                    toolbar: 'numlist',
+                    toolbar: 'numlist bullist',
+               });
+
+               tinymce.init({
+                    selector: 'textarea#meds',
+                    plugins: 'lists',
+                    toolbar: 'numlist bullist',
+               });
+
+               tinymce.init({
+                    selector: 'textarea#other_concern',
+                    plugins: 'lists',
+                    toolbar: 'numlist bullist',
+               });
+
+               tinymce.init({
+                    selector: 'textarea#work_up',
+                    plugins: 'lists',
+                    toolbar: 'numlist bullist',
                });
           </script>
           @yield('scripts')

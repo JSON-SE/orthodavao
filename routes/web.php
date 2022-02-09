@@ -98,4 +98,14 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/patient/request/referral/{id}', [RequestController::class, 'referralIndex']);
     Route::get('/request/referral', [RequestController::class, 'requestReferralDataTable']);
     Route::post('/request/referral/patient/{id}', [RequestController::class, 'generateReferral']);
+
+    // Admission Routes
+    Route::get('/patient/request/admission/{id}', [RequestController::class, 'admissionIndex']);
+    Route::get('/request/admission', [RequestController::class, 'requestAdmissionDataTable']);
+    Route::post('/request/admission/patient/{id}', [RequestController::class, 'generateAdmission']);
+
+    // Medical Certificate Routes
+    Route::get('/patient/request/medical-certificate/{id}', [RequestController::class, 'medicalCertificateIndex']);
+    Route::get('/request/medical-certificate', [RequestController::class, 'requestMedicalCertificateDataTable']);
+    Route::post('/request/medical-certificate/patient/{id}', [RequestController::class, 'generateMedicalCertificate']);
 });

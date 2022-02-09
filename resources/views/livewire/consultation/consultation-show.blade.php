@@ -61,11 +61,13 @@
                                         </tr>
                                         <tr>
                                             <td>Admission</td>
-                                            <td><a href="#" class="btn btn-xs btn-default">Request</a></td>
+                                            <td><a href="/patient/request/admission/{{ $consultation->id }}"
+                                                    class="btn btn-xs btn-default">Request</a></td>
                                         </tr>
                                         <tr>
                                             <td>Medical Certificate</td>
-                                            <td><a href="#" class="btn btn-xs btn-default">Request</a></td>
+                                            <td><a href="/patient/request/medical-certificate/{{ $consultation->id }}"
+                                                    class="btn btn-xs btn-default">Request</a></td>
                                         </tr>
                                     </tbody>
                                 </table>
