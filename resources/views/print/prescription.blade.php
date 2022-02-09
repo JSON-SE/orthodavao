@@ -153,10 +153,10 @@
                <div class="col-xs-12">
                     <div class="personalInfo">
                          <div class="col-xs-7">
-                              <p><strong>Patient's
-                                        Name:</strong>&nbsp;&nbsp;<strong>{{$consultation->patient->firstname}}
+                              <p><strong>Name:</strong>&nbsp;&nbsp;<strong>{{$consultation->patient->firstname}}
                                         {{$consultation->patient->middlename}}
-                                        {{$consultation->patient->lastname}}</strong></p>
+                                        {{$consultation->patient->lastname}}{{ isset($consultation->patient->suffix) ?
+                                        ', '.$consultation->patient->suffix : '' }}</strong></p>
                          </div>
                          <div class="col-xs-3">
                               <p><strong>Age:</strong>&nbsp;&nbsp;<strong>{{$consultation->patient->age}}</strong></p>
@@ -186,7 +186,9 @@
                          <ul>
                               <li>{{ $prescription['description'] }}</li>
                               <ul>
+                                   @if (isset($prescription['sig']))
                                    <li>{{ $prescription['sig'] }}</li>
+                                   @endif
                               </ul>
                          </ul>
                          @endforeach

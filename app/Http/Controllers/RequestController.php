@@ -226,7 +226,13 @@ class RequestController extends Controller
     {
         if ($request->ajax()) {
             $prescriptionRequest = PrescriptionRequest::all();
-            return DataTables::of($prescriptionRequest)->toJson();
+            return DataTables::of($prescriptionRequest)
+            ->addColumn('type', function ($prescriptionRequest) {
+                $name = $prescriptionRequest->prescriptionType->name;
+                return $name;
+            })
+            ->rawColumns(['type'])
+            ->make(true);
         }
     }
 

@@ -31,6 +31,7 @@
                               <table class="table table-bordered" id="prescriptionRequestTable" width="100%">
                                    <thead>
                                         <th></th>
+                                        <th>Type</th>
                                         <th>Name</th>
                                         <th>Description</th>
                                         <th>Sig</th>
@@ -39,6 +40,7 @@
                                    </tbody>
                                    <tfoot>
                                         <th></th>
+                                        <th>Type</th>
                                         <th>Name</th>
                                         <th>Description</th>
                                         <th>Sig</th>

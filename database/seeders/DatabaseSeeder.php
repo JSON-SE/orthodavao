@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\MriRequest;
+use App\Models\PrescriptionType;
 use Illuminate\Database\Seeder;
 use Database\Seeders\RoleSeeder;
 use Database\Seeders\CtRequestSeeder;
@@ -36,6 +37,7 @@ class DatabaseSeeder extends Seeder
         $this->call(LaboratoryRequestSeeder::class);
         $this->call(MriRequestSeeder::class);
         $this->call(CtRequestSeeder::class);
+        $this->call(PrescriptionTypeSeeder::class);
         $this->call(PrescriptionRequestSeeder::class);
     }
 }

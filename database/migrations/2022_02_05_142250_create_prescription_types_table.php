@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePrescriptionRequestsTable extends Migration
+class CreatePrescriptionTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreatePrescriptionRequestsTable extends Migration
      */
     public function up()
     {
-        Schema::create('prescription_requests', function (Blueprint $table) {
+        Schema::create('prescription_types', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('prescription_type_id')->constrained();
-            $table->string('description')->nullable();
-            $table->string('sig')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreatePrescriptionRequestsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prescription_requests');
+        Schema::dropIfExists('prescription_types');
     }
 }

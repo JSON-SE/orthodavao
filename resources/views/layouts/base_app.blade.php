@@ -464,7 +464,12 @@
                          columns: [{
                                    data: 'id',
                                    name: 'id'
-                              }, {
+                              },
+                              {
+                                   data: 'type',
+                                   name: 'type'
+                              },
+                              {
                                    data: 'name',
                                    name: 'name'
                               },
