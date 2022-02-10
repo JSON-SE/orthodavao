@@ -179,6 +179,10 @@
                     <h5 align="center" style="margin-top: 20px;"><strong>ADMITTING NOTE</strong></h5>
                </div>
                <div class="col-xs-12">
+                    <div class="subjective">
+                         <h5><strong>Impression/Diagnosis</strong></h5>
+                         <p style="padding: 0; margin:0;">{!! $admissionRequest['assessment'] !!}</p><br><br>
+                    </div>
                     <li>Please admit patient under my service PC.</li>
                     <li>Secure consent for admission and management.</li>
                     <li>{{ $admissionRequest['input_1'] }}</li>
