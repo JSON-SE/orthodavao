@@ -2,7 +2,8 @@
     <ol class="breadcrumb has-arrow">
         <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
         <li class="breadcrumb-item">
-            <a href="{{ url()->previous() }}">{{ $consultation->patient->firstname }}'s list of Records</a>
+            <a href="/find/patient/{{ $consultation->patient->id }}">{{ $consultation->patient->firstname }}'s list of
+                Records</a>
         </li>
         <li class="breadcrumb-item active" aria-current="page">
             {{ $consultation->patient->firstname }}'s Record as of
