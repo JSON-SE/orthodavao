@@ -528,6 +528,23 @@
                     plugins: 'lists',
                     toolbar: 'numlist bullist',
                });
+
+               tinymce.init({
+                    selector: 'textarea#assessment',
+                    plugins: 'lists',
+                    toolbar: 'numlist bullist',
+               });
+               tinymce.init({
+                    selector: 'textarea#procedure',
+                    plugins: 'lists',
+                    toolbar: 'numlist bullist',
+               });
+
+               tinymce.init({
+                    selector: 'textarea#recommendation',
+                    plugins: 'lists',
+                    toolbar: 'numlist bullist',
+               });
           </script>
           @yield('scripts')
           @livewireScripts

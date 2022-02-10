@@ -33,11 +33,11 @@
                                         <p>Please admit patient under my service PC.</p>
                                         <p>Secure consent for admission and management.</p>
                                         <div class="form-group">
-                                             <input type="input_1" name="input_1"
+                                             <input type="text" name="input_1"
                                                   class="form-control {{ $errors->has('form.input_1') ? ' is-invalid' : '' }}"
                                                   placeholder="" />
                                              <p>VS</p>
-                                             <input type="input_2" name="input_2"
+                                             <input type="text" name="input_2"
                                                   class="form-control {{ $errors->has('form.input_2') ? ' is-invalid' : '' }}"
                                                   placeholder="" />
                                         </div>

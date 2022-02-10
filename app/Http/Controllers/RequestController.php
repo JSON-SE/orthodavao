@@ -330,4 +330,36 @@ class RequestController extends Controller
 
         return PDF::loadView('print.admission', compact('admissionRequest', 'consultation', 'region_description', 'province_description', 'city_municipality_description', 'barangay_description'))->setOption('page-width', '140')->setOption('page-height', '216')->setOption('margin-top', '0')->setOption('margin-right', '0')->setOption('margin-bottom', '0')->setOption('margin-left', '0')->setOption('footer-right', 'footer')->setOrientation('portrait')->inline('admission.pdf');
     }
+
+    // Medical Certificate Routes
+    // create a public function called medicalCertificateIndex
+    public function medicalCertificateIndex($id)
+    {
+        $consultation = Consultation::with('patient')->where('id', $id)->first();
+        return view('request.medical_certificate', compact('consultation'));
+    }
+
+    // create a public function called generateMedicalCertificate
+    public function generateMedicalCertificate(Request $request, $id)
+    {
+        $consultation = Consultation::with('patient')->where('id', $id)->first();
+        // patient address query
+        $queryRegion = PhilippineRegion::where('region_code', '=', $consultation->patient->region_code)->first();
+        $region_description = $queryRegion->region_description;
+        $queryProvince = PhilippineProvince::where('region_code', '=', $consultation->patient->region_code)->first();
+        $province_description = $queryProvince->province_description;
+        $queryCityMunicipality = PhilippineCity::where('city_municipality_code', '=', $consultation->patient->city_municipality_code)->first();
+        $city_municipality_description = $queryCityMunicipality->city_municipality_description;
+        $queryBarangay = PhilippineBarangay::where('barangay_code', '=', $consultation->patient->barangay_code)->first();
+        $barangay_description = $queryBarangay->barangay_description;
+
+        $medicalCertificateRequest = [
+            'date' => $request->date,
+            'assessment' => $request->assessment,
+            'procedure' => $request->procedure,
+            'recommendation' => $request->recommendation,
+        ];
+
+        return PDF::loadView('print.medical_certificate', compact('medicalCertificateRequest', 'consultation', 'region_description', 'province_description', 'city_municipality_description', 'barangay_description'))->setPaper('a4')->setOrientation('portrait')->inline('medical.pdf');
+    }
 }
