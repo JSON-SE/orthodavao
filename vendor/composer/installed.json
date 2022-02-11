@@ -1660,7 +1660,7 @@
                 "bin/wkhtmltopdf-amd64"
             ],
             "type": "library",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "h4cc\\WKHTMLToPDF\\": ""

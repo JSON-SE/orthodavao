@@ -45,7 +45,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/find/patient/{id}', PatientFind::class);
     Route::get('/update/patient/{id}', PatientUpdate::class);
     Route::get('/consultation/index', ConsultationIndex::class)->name('consultation-index');
-    Route::get('/consultation/create/{id}', ConsultationCreate::class);
+});
+
+
+// Middleware for Admin
+Route::middleware(['auth', 'isAdmin'])->group(function () {
+    Route::get('/consultation/create/{id}', ConsultationCreate::class)->middleware('isAdmin');
     Route::post('/consultation/create', [ConsultationController::class, 'store'])->name('post-consultation');
     Route::get('/find/consultation/{id}', ConsultationShow::class);
     Route::get('/consultation/update/{id}', ConsultationUpdate::class);
@@ -53,6 +58,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/consultation/update/{id}', [ConsultationController::class, 'update']);
     Route::get('/consultation/destroy/{id}', [ConsultationController::class, 'destroyConsultation']);
 });
+
 // DataTale Routes
 Route::middleware(['auth'])->group(function () {
     // your routes goes here..
