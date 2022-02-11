@@ -332,7 +332,7 @@ class LivewireServiceProvider extends ServiceProvider
         Features\SupportBrowserHistory::init();
         Features\SupportComponentTraits::init();
         Features\SupportRootElementTracking::init();
-        Features\SupportPostDeploymentInvalidation::init();
+        // Features\SupportPostDeploymentInvalidation::init();
     }
 
     protected function registerHydrationMiddleware()
