@@ -3,11 +3,6 @@
         <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
         <li class="breadcrumb-item active" aria-current="page">Consultation Index</li>
     </ol>
-    @foreach($errors->all() as $error)
-    <div class="alert alert-danger">
-        <li>{{ $error }}</li>
-    </div>
-    @endforeach
 
     <div class="grid">
         <div class="grid-header">Consultation</div>
