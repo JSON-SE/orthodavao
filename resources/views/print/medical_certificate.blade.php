@@ -29,8 +29,16 @@
 
      <body>
           <div class="container">
-               <div class="col-xs-12" align="center">
-                    <!-- <img src="/var/www/myapplication/static/images/some_picture.png" height="300" width="940"> -->
+               <div class="col-xs-12" style="position: relative;" align="center">
+                    <div class="title">
+                         <h1><strong>JEREMIAH R. MORALES, MD, FPOA</strong></h1>
+                         <div class="sub-header">
+                              <h3 style="margin: 0;">Orthopedics & Spine Surgery</h3>
+                              <h3 style="margin: 0;"><i>Diplomate, Philippine Board of Orthopedics</i></h3>
+                              <h3 style="margin: 0;"><i>Fellow, Philippine Orthopedics Association</i></h3>
+                              <h3 style="margin: 0;"><i>Fellow, Philippine Spine Society</i></h3>
+                         </div>
+                    </div><br>
                </div>
                <div class="col-md-12">
                     <div class="col-md-6" align="right" style="padding-right: 20mm;">
@@ -70,13 +78,13 @@
                     <h3>{!! $medicalCertificateRequest['recommendation'] !!}</h3>
                </div>
                <div class="col-md-12" id="sign"
-                    style="margin-top: 12em; padding-left: 194mm; padding-right: 20mm; padding-top: 175mm;">
+                    style="margin-top: 5em; padding-left: 194mm; padding-right: 20mm; padding-top: 175mm;">
                     <h4>_____________________________</h4>
                     <h4><strong>Jerimiah R. Morales, MD, FPOA, FPSS</strong></h4>
                     <h4><strong>Lic. <u>No.</u> 103836</strong></h4>
                     <h4><strong>Attending Physician</strong></h4>
                </div>
-               <div class="col-md-12" style="position: relative; margin-top: 60em; margin-left:80px;">
+               <div class="col-md-12" style="position: relative; margin-top: 53em; margin-left:80px;">
                     <h3><SMALL>NOT VALID WITHOUT SEAL</SMALL></h3>
                </div>
           </div>

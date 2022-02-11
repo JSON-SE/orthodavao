@@ -107,6 +107,7 @@
                          <h4>Orthopedics & Spine Surgery</h4>
                          <h4><i>Diplomate, Philippine Board of Orthopedics</i></h4>
                          <h4><i>Fellow, Philippine Orthopedics Association</i></h4>
+                         <h4><i>Fellow, Philippine Spine Society</i></h4>
                     </div>
                </div><br>
                <div class="col-xs-12">
